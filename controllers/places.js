@@ -9,6 +9,7 @@ router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
+//SHOW
 router.get('/:id', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
@@ -20,6 +21,7 @@ router.get('/:id', (req, res) => {
   }
 })
 
+//POST
 router.post('/', (req, res) => {
   console.log(req.body)
   if (!req.body.pic) {
@@ -36,6 +38,7 @@ router.post('/', (req, res) => {
   res.redirect('/places')
 })
 
+//DELETE
 router.delete('/:id', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
