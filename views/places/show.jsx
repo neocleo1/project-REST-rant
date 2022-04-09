@@ -55,7 +55,7 @@ function show(data) {
           <div className="form-group">
             <label htmlFor="city">Star Rating</label>
             <input
-              type="number"
+              type="range"
               className="form-control"
               id="stars"
               name="stars"
