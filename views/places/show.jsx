@@ -33,6 +33,57 @@ function show(data) {
         <h4>Serving {data.place.cuisines}</h4>
         <h2>Comments</h2>
         {comments}
+
+        <form method="POST" action="/places/${data.place.id}/comment">
+          <div className="form-group">
+            <label htmlFor="name">Author</label>
+            <input
+              className="form-control"
+              id="author"
+              name="author"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="pic">Content</label>
+            <textarea
+              className="form-control"
+              id="content"
+              name="content"
+            ></textarea>
+          </div>
+          <div className="form-group">
+            <label htmlFor="city">Star Rating</label>
+            <input
+              type="number"
+              className="form-control"
+              id="stars"
+              name="stars"
+              step="0.5"
+              min="1"
+              max="10"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="city">Rant</label>
+            <input
+              type="checkbox"
+              className="form-control"
+              id="rant"
+              name="rant"
+            />
+          </div>
+        </form>
+
+        <form
+          method="POST"
+          action={`/places/${data.place.id}/comment?_method=POST`}
+        >
+          <button type="submit" className="btn btn-danger">
+            Add Comment
+          </button>
+        </form>
+
         <a href={`/places/${data.id}/edit`} className="btn btn-warning">
           Edit
         </a>
